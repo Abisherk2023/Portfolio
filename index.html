@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Muthurajah Abisherk | Software Engineer</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              dark: '#07090e',
+              card: '#0f172a',
+              border: '#1e293b',
+              accent: '#06b6d4', // Cyan
+              neon: '#38bdf8',
+              purple: '#a855f7',
+              emerald: '#10b981',
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            mono: ['Fira Code', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Custom Styling & Glowing Utilities */
+    body {
+      background-color: #05070c;
+      color: #f1f5f9;
+      font-family: 'Inter', sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* Custom Glassmorphism */
+    .glass-panel {
+      background: rgba(15, 23, 42, 0.65);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .glass-nav {
+      background: rgba(7, 9, 14, 0.75);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    /* Ambient Glow Backgrounds */
+    .glow-cyan {
+      box-shadow: 0 0 25px rgba(6, 182, 212, 0.25);
+    }
+
+    .glow-hover:hover {
+      box-shadow: 0 10px 30px -10px rgba(56, 189, 248, 0.35);
+      border-color: rgba(56, 189, 248, 0.5);
+    }
+
+    .bg-grid-pattern {
+      background-size: 40px 40px;
+      background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    }
+
+    /* Gradient Text */
+    .gradient-text {
+      background: linear-gradient(135deg, #38bdf8 0%, #a855f7 50%, #ec4899 100%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .gradient-cyan {
+      background: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #05070c;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #1e293b;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #06b6d4;
+    }
+
+    /* Typing cursor effect */
+    .cursor-blink {
+      display: inline-block;
+      width: 8px;
+      height: 18px;
+      background-color: #38bdf8;
+      margin-left: 4px;
+      animation: blink 1s infinite;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+  </style>
+</head>
+<body class="relative bg-grid-pattern min-h-screen text-slate-100 antialiased selection:bg-cyan-500 selection:text-black">
+
+  <div class="fixed top-0 left-1/4 -translate-x-1/2 w-[500px] h-[500px] bg-cyan-500/10 rounded-full blur-[140px] pointer-events-none z-0"></div>
+  <div class="fixed top-1/3 right-10 w-[400px] h-[400px] bg-purple-500/10 rounded-full blur-[140px] pointer-events-none z-0"></div>
+
+  <header class="fixed top-0 left-0 w-full z-50 glass-nav transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+      <a href="#" class="font-mono text-xl font-bold tracking-tight text-white flex items-center gap-2 group">
+        <span class="text-cyan-400">&lt;</span>
+        <span class="group-hover:text-cyan-400 transition-colors">Muthurajah Abisherk</span>
+        <span class="text-cyan-400">/&gt;</span>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
+        <a href="#about" class="hover:text-cyan-400 transition-colors">About</a>
+        <a href="#skills" class="hover:text-cyan-400 transition-colors">Tech Stack</a>
+        <a href="#projects" class="hover:text-cyan-400 transition-colors">Projects</a>
+        <a href="#experience" class="hover:text-cyan-400 transition-colors">Experience</a>
+        <a href="#contact" class="hover:text-cyan-400 transition-colors">Contact</a>
+      </nav>
+
+      <div class="hidden md:flex items-center gap-4">
+        <a href="https://github.com" target="_blank" class="p-2 text-slate-400 hover:text-white transition-colors">
+          <i class="fa-brands fa-github text-xl"></i>
+        </a>
+        <a href="#contact" class="px-4 py-2 rounded-lg bg-cyan-500/10 text-cyan-400 border border-cyan-500/30 font-mono text-xs font-semibold hover:bg-cyan-500 hover:text-slate-950 transition-all duration-300 shadow-lg shadow-cyan-500/10">
+          Get In Touch
+        </a>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button id="mobile-menu-btn" class="md:hidden text-slate-300 hover:text-white text-2xl focus:outline-none">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+
+    <!-- Mobile Dropdown -->
+    <div id="mobile-menu" class="hidden md:hidden glass-panel border-b border-slate-800 px-6 py-6 space-y-4">
+      <a href="#about" class="block text-slate-300 hover:text-cyan-400 text-lg">About</a>
+      <a href="#skills" class="block text-slate-300 hover:text-cyan-400 text-lg">Tech Stack</a>
+      <a href="#projects" class="block text-slate-300 hover:text-cyan-400 text-lg">Projects</a>
+      <a href="#experience" class="block text-slate-300 hover:text-cyan-400 text-lg">Experience</a>
+      <a href="#contact" class="block text-slate-300 hover:text-cyan-400 text-lg">Contact</a>
+    </div>
+  </header>
+
+  <main class="relative z-10 pt-28">
+
+    <section id="about" class="max-w-7xl mx-auto px-6 py-16 lg:py-24 grid lg:grid-cols-12 gap-12 items-center">
+      <div class="lg:col-span-7 space-y-6">
+        <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-xs font-mono">
+          <span class="w-2 h-2 rounded-full bg-cyan-400 animate-ping"></span>
+          <span>Available for Software Engineer / Full-Stack Roles</span>
+        </div>
+
+        <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight text-white leading-tight">
+          Architecting <span class="gradient-text">Scalable</span> & Distributed Systems.
+        </h1>
+
+        <p class="text-lg text-slate-400 leading-relaxed max-w-2xl">
+          Hi, I'm <strong class="text-white">Muthurajah Abisherk</strong> — a Software Engineer with 2+ years of experience engineering high-performance backend microservices, real-time cloud analytics, and intelligent full-stack applications.
+        </p>
+
+        <!-- Quick Stats -->
+        <div class="grid grid-cols-3 gap-4 pt-4 border-t border-slate-800/80">
+          <div>
+            <div class="text-2xl sm:text-3xl font-bold font-mono text-cyan-400">2+</div>
+            <div class="text-xs text-slate-400 uppercase tracking-wider font-mono">Years Exp.</div>
+          </div>
+          <div>
+            <div class="text-2xl sm:text-3xl font-bold font-mono text-purple-400">99.99%</div>
+            <div class="text-xs text-slate-400 uppercase tracking-wider font-mono">Uptime Target</div>
+          </div>
+          <div>
+            <div class="text-2xl sm:text-3xl font-bold font-mono text-emerald-400">10M+</div>
+            <div class="text-xs text-slate-400 uppercase tracking-wider font-mono">Req / Day</div>
+          </div>
+        </div>
+
+        <div class="flex flex-wrap gap-4 pt-4">
+          <a href="#projects" class="px-6 py-3 rounded-lg bg-gradient-to-r from-cyan-500 to-blue-600 text-slate-950 font-bold hover:shadow-lg hover:shadow-cyan-500/25 transition-all duration-300 flex items-center gap-2">
+            View Featured Projects <i class="fa-solid fa-arrow-down text-sm"></i>
+          </a>
+          <button onclick="copyToClipboard('Abisherk2018@gmail.com')" class="px-6 py-3 rounded-lg glass-panel hover:bg-slate-800 text-slate-200 font-semibold border border-slate-700 transition-all flex items-center gap-2">
+            <i class="fa-regular fa-copy text-cyan-400"></i> Copy Email
+          </button>
+        </div>
+      </div>
+
+      <!-- Interactive Simulated Terminal -->
+      <div class="lg:col-span-5">
+        <div class="glass-panel rounded-xl overflow-hidden shadow-2xl border border-slate-800">
+          <div class="bg-slate-900/90 px-4 py-3 flex items-center justify-between border-b border-slate-800">
+            <div class="flex items-center gap-2">
+              <span class="w-3 h-3 rounded-full bg-red-500/80 inline-block"></span>
+              <span class="w-3 h-3 rounded-full bg-yellow-500/80 inline-block"></span>
+              <span class="w-3 h-3 rounded-full bg-green-500/80 inline-block"></span>
+            </div>
+            <span class="text-xs font-mono text-slate-400">terminal@muthurajah-macbook</span>
+            <span class="text-xs font-mono text-cyan-400"><i class="fa-solid fa-bolt"></i> bash</span>
+          </div>
+          <div class="p-5 font-mono text-xs sm:text-sm space-y-3 min-h-[300px] bg-slate-950/80">
+            <div class="text-slate-400">
+              <span class="text-cyan-400">muthurajah@abisherk-dev</span>:<span class="text-purple-400">~</span>$ whoami
+            </div>
+            <div id="terminal-output-1" class="text-slate-200">Software Engineer &amp; Full-Stack Developer</div>
+
+            <div class="text-slate-400">
+              <span class="text-cyan-400">muthurajah@abisherk-dev</span>:<span class="text-purple-400">~</span>$ cat core_skills.json
+            </div>
+            <pre class="text-emerald-400 overflow-x-auto">{
+  "languages": ["JavaScript", "TypeScript", "Python", "Rust", "C++"],
+  "infrastructure": ["Docker", "Kubernetes", "AWS", "Terraform"],
+  "databases": ["PostgreSQL", "MySQL", "MongoDB"]
+}</pre>
+
+            <div class="text-slate-400">
+              <span class="text-cyan-400">muthurajah@abisherk-dev</span>:<span class="text-purple-400">~</span>$ <span id="terminal-typewriter"></span><span class="cursor-blink"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" class="max-w-7xl mx-auto px-6 py-20">
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <h2 class="text-xs font-mono text-cyan-400 uppercase tracking-widest mb-2">// TECHNICAL PROFICIENCY</h2>
+        <h3 class="text-3xl font-extrabold text-white">Tech Stack &amp; Tooling</h3>
+      </div>
+
+      <!-- Skill Category Tabs -->
+      <div class="flex justify-center flex-wrap gap-2 mb-10">
+        <button onclick="filterSkills('all')" class="skill-tab-btn active px-4 py-2 rounded-lg text-sm font-mono font-medium border border-cyan-500 bg-cyan-500/20 text-cyan-300 transition-all">All Skills</button>
+        <button onclick="filterSkills('languages')" class="skill-tab-btn px-4 py-2 rounded-lg text-sm font-mono font-medium border border-slate-800 bg-slate-900/60 text-slate-400 hover:text-white transition-all">Languages</button>
+        <button onclick="filterSkills('frameworks')" class="skill-tab-btn px-4 py-2 rounded-lg text-sm font-mono font-medium border border-slate-800 bg-slate-900/60 text-slate-400 hover:text-white transition-all">Frameworks &amp; Web</button>
+        <button onclick="filterSkills('cloud')" class="skill-tab-btn px-4 py-2 rounded-lg text-sm font-mono font-medium border border-slate-800 bg-slate-900/60 text-slate-400 hover:text-white transition-all">Cloud &amp; DevOps</button>
+        <button onclick="filterSkills('data')" class="skill-tab-btn px-4 py-2 rounded-lg text-sm font-mono font-medium border border-slate-800 bg-slate-900/60 text-slate-400 hover:text-white transition-all">Databases &amp; Queues</button>
+      </div>
+
+      <!-- Skills Grid -->
+      <div id="skills-container" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+        <!-- Javascript injected via JS -->
+      </div>
+    </section>
+
+    <section id="projects" class="max-w-7xl mx-auto px-6 py-20">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+        <div>
+          <h2 class="text-xs font-mono text-cyan-400 uppercase tracking-widest mb-2">// PORTFOLIO SHOWCASE</h2>
+          <h3 class="text-3xl sm:text-4xl font-extrabold text-white">Featured Projects</h3>
+        </div>
+
+        <!-- Project Filters -->
+        <div class="flex flex-wrap gap-2">
+          <button onclick="filterProjects('all')" class="proj-filter-btn active px-3 py-1.5 rounded-md text-xs font-mono border border-cyan-500 bg-cyan-500/20 text-cyan-300">All</button>
+          <button onclick="filterProjects('ai')" class="proj-filter-btn px-3 py-1.5 rounded-md text-xs font-mono border border-slate-800 bg-slate-900/60 text-slate-400 hover:text-white">AI / ML</button>
+          <button onclick="filterProjects('cloud')" class="proj-filter-btn px-3 py-1.5 rounded-md text-xs font-mono border border-slate-800 bg-slate-900/60 text-slate-400 hover:text-white">Cloud / Backend</button>
+          <button onclick="filterProjects('web')" class="proj-filter-btn px-3 py-1.5 rounded-md text-xs font-mono border border-slate-800 bg-slate-900/60 text-slate-400 hover:text-white">Web Apps</button>
+          <button onclick="filterProjects('systems')" class="proj-filter-btn px-3 py-1.5 rounded-md text-xs font-mono border border-slate-800 bg-slate-900/60 text-slate-400 hover:text-white">Systems</button>
+        </div>
+      </div>
+
+      <!-- Projects Grid -->
+      <div id="projects-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Dynamic Cards Inserted Here -->
+      </div>
+    </section>
+
+    <section id="experience" class="max-w-7xl mx-auto px-6 py-20">
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <h2 class="text-xs font-mono text-cyan-400 uppercase tracking-widest mb-2">// CAREER PATH</h2>
+        <h3 class="text-3xl font-extrabold text-white">Work Experience</h3>
+      </div>
+
+      <div class="max-w-4xl mx-auto relative border-l-2 border-slate-800 pl-6 sm:pl-10 space-y-12">
+
+        <!-- Timeline Item 1 -->
+        <div class="relative group">
+          <div class="absolute -left-[31px] sm:-left-[47px] top-1.5 w-5 h-5 rounded-full bg-cyan-500 border-4 border-slate-950 shadow-lg shadow-cyan-500/50"></div>
+          <div class="glass-panel p-6 sm:p-8 rounded-xl border border-slate-800 glow-hover transition-all">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
+              <div>
+                <h4 class="text-xl font-bold text-white">Intern Software Engineer</h4>
+                <p class="text-cyan-400 font-mono text-sm">Samuel Gnanams IT Centre</p>
+              </div>
+              <span class="px-3 py-1 rounded-full bg-slate-800 text-slate-300 font-mono text-xs w-fit">2025</span>
+            </div>
+            <ul class="list-disc list-inside text-slate-300 text-sm space-y-2 leading-relaxed">
+              <li>Architected event-driven microservices platform processing 12M+ real-time events daily using Node.js, Kafka, and Kubernetes.</li>
+              <li>Reduced AWS infrastructure costs by 32% through container optimization and dynamic auto-scaling policies.</li>
+              <li>Mentored a team of 8 junior and mid-level software engineers across backend and DevOps pipelines.</li>
+            </ul>
+          </div>
+        </div>
+
+    <!-- <!-- Timeline Item 2 -->
+        <!--<div class="relative group">
+          <div class="absolute -left-[31px] sm:-left-[47px] top-1.5 w-5 h-5 rounded-full bg-purple-500 border-4 border-slate-950 shadow-lg shadow-purple-500/50"></div>
+          <div class="glass-panel p-6 sm:p-8 rounded-xl border border-slate-800 glow-hover transition-all">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
+              <div>
+                <h4 class="text-xl font-bold text-white">Senior Full Stack Engineer</h4>
+                <p class="text-purple-400 font-mono text-sm">Apex Nexus Labs</p>
+              </div>
+              <span class="px-3 py-1 rounded-full bg-slate-800 text-slate-300 font-mono text-xs w-fit">2021 — 2023</span>
+            </div>
+            <ul class="list-disc list-inside text-slate-300 text-sm space-y-2 leading-relaxed">
+              <li>Built real-time web applications using Next.js, GraphQL, WebSockets, and Redis.</li>
+              <li>Engineered high-speed caching layers resulting in 65% faster API response times across core web apps.</li>
+              <li>Introduced CI/CD automated test suites achieving 92% code coverage.</li>
+            </ul>
+          </div>
+        </div>
+        -->
+
+        <!-- Timeline Item 3 -->
+       <!-- <div class="relative group">
+          <div class="absolute -left-[31px] sm:-left-[47px] top-1.5 w-5 h-5 rounded-full bg-emerald-500 border-4 border-slate-950 shadow-lg shadow-emerald-500/50"></div>
+          <div class="glass-panel p-6 sm:p-8 rounded-xl border border-slate-800 glow-hover transition-all">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
+              <div>
+                <h4 class="text-xl font-bold text-white">Software Engineer</h4>
+                <p class="text-emerald-400 font-mono text-sm">DataPulse Tech</p>
+              </div>
+              <span class="px-3 py-1 rounded-full bg-slate-800 text-slate-300 font-mono text-xs w-fit">2019 — 2021</span>
+            </div>
+            <ul class="list-disc list-inside text-slate-300 text-sm space-y-2 leading-relaxed">
+              <li>Developed RESTful APIs and background job processors using Python, Node.js, and PostgreSQL.</li>
+              <li>Integrated third-party payment solutions and authentication workflows (OAuth2 / JWT).</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+      -->
+    </section>
+
+    <section id="contact" class="max-w-7xl mx-auto px-6 py-20">
+      <div class="glass-panel rounded-2xl border border-slate-800 p-8 sm:p-12 relative overflow-hidden">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+
+          <div class="space-y-6">
+            <h2 class="text-xs font-mono text-cyan-400 uppercase tracking-widest">// GET IN TOUCH</h2>
+            <h3 class="text-3xl sm:text-4xl font-extrabold text-white">Let's Build Something Exceptional Together.</h3>
+            <p class="text-slate-400 leading-relaxed">
+              Whether you are looking to build a high-performance backend system, scale your infrastructure, or hire a seasoned engineer for your team, feel free to reach out.
+            </p>
+
+            <div class="space-y-4 pt-4">
+              <div class="flex items-center gap-4">
+                <div class="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400">
+                  <i class="fa-regular fa-envelope text-xl"></i>
+                </div>
+                <div>
+                  <div class="text-xs text-slate-400 font-mono">DIRECT EMAIL</div>
+                  <div class="text-white font-mono font-medium">Abisherk2018@gmail.com</div>
+                </div>
+              </div>
+
+              <div class="flex items-center gap-4">
+                <div class="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/30 flex items-center justify-center text-purple-400">
+                  <i class="fa-solid fa-location-dot text-xl"></i>
+                </div>
+                <div>
+                  <div class="text-xs text-slate-400 font-mono">LOCATION</div>
+                  <div class="text-white font-medium">Jaffna, Srilanka (Remote Available)</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Social Links -->
+            <div class="flex gap-4 pt-4">
+              <a href="https://github.com/Abisherk2023" target="_blank" class="p-3 rounded-lg bg-slate-900 border border-slate-800 text-slate-300 hover:text-cyan-400 hover:border-cyan-500 transition-all">
+                <i class="fa-brands fa-github text-xl"></i>
+              </a>
+              <a href="https://www.linkedin.com/in/abisherk-muthurajah-005392168/" target="_blank" class="p-3 rounded-lg bg-slate-900 border border-slate-800 text-slate-300 hover:text-cyan-400 hover:border-cyan-500 transition-all">
+                <i class="fa-brands fa-linkedin text-xl"></i>
+              </a>
+             <!-- <a href="https://twitter.com" target="_blank" class="p-3 rounded-lg bg-slate-900 border border-slate-800 text-slate-300 hover:text-cyan-400 hover:border-cyan-500 transition-all">
+                <i class="fa-brands fa-x-twitter text-xl"></i>
+              </a> 
+            -->
+            </div>
+          </div>
+
+          <!-- Contact Form -->
+          <form id="contact-form" onsubmit="handleFormSubmit(event)" class="space-y-4 bg-slate-950/60 p-6 sm:p-8 rounded-xl border border-slate-800/80">
+            <div>
+              <label class="block text-xs font-mono text-slate-400 mb-2">YOUR NAME</label>
+              <input type="text" required placeholder="Muthurajah Abisherk" class="w-full px-4 py-3 rounded-lg bg-slate-900 border border-slate-800 text-white focus:outline-none focus:border-cyan-500 font-sans transition-colors" />
+            </div>
+
+            <div>
+              <label class="block text-xs font-mono text-slate-400 mb-2">EMAIL ADDRESS</label>
+              <input type="email" required placeholder="Abisherk@example.com" class="w-full px-4 py-3 rounded-lg bg-slate-900 border border-slate-800 text-white focus:outline-none focus:border-cyan-500 font-sans transition-colors" />
+            </div>
+
+            <div>
+              <label class="block text-xs font-mono text-slate-400 mb-2">MESSAGE</label>
+              <textarea rows="4" required placeholder="Tell me about your project or inquiry..." class="w-full px-4 py-3 rounded-lg bg-slate-900 border border-slate-800 text-white focus:outline-none focus:border-cyan-500 font-sans transition-colors"></textarea>
+            </div>
+
+            <button type="submit" class="w-full py-3.5 rounded-lg bg-cyan-500 text-slate-950 font-bold hover:bg-cyan-400 transition-all duration-300 flex items-center justify-center gap-2 shadow-lg shadow-cyan-500/20">
+              <span>Send Message</span> <i class="fa-solid fa-paper-plane text-sm"></i>
+            </button>
+          </form>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="project-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-black/80 backdrop-blur-md">
+    <div class="glass-panel max-w-2xl w-full rounded-2xl border border-slate-800 p-6 sm:p-8 relative max-h-[90vh] overflow-y-auto">
+      <button onclick="closeModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white text-xl">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <div id="modal-content">
+        <!-- Content dynamically populated by JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Box -->
+  <div id="toast" class="fixed bottom-6 right-6 z-50 hidden glass-panel px-5 py-3 rounded-lg border border-cyan-500/40 text-cyan-300 font-mono text-sm flex items-center gap-3 shadow-xl">
+    <i class="fa-solid fa-circle-check text-cyan-400"></i>
+    <span id="toast-msg">Action completed!</span>
+  </div>
+
+  <footer class="border-t border-slate-900 py-8 text-center font-mono text-xs text-slate-500">
+    <p>&copy; 2026 Muthurajah Abisherk. Built with HTML, Tailwind CSS &amp; JavaScript.</p>
+  </footer>
+
+  <script>
+    // --- SKILLS DATA & LOGIC ---
+    const skills = [
+      { name: 'Go', category: 'languages', icon: 'fa-solid fa-code', color: 'text-cyan-400' },
+      { name: 'TypeScript', category: 'languages', icon: 'fa-brands fa-js', color: 'text-blue-400' },
+      { name: 'Python', category: 'languages', icon: 'fa-brands fa-python', color: 'text-yellow-400' },
+      { name: 'Rust', category: 'languages', icon: 'fa-solid fa-gear', color: 'text-orange-400' },
+      { name: 'C++', category: 'languages', icon: 'fa-solid fa-laptop-code', color: 'text-purple-400' },
+      { name: 'React / Next.js', category: 'frameworks', icon: 'fa-brands fa-react', color: 'text-cyan-300' },
+      { name: 'FastAPI', category: 'frameworks', icon: 'fa-solid fa-bolt', color: 'text-emerald-400' },
+      { name: 'GraphQL', category: 'frameworks', icon: 'fa-solid fa-diagram-project', color: 'text-pink-400' },
+      { name: 'Tailwind CSS', category: 'frameworks', icon: 'fa-solid fa-palette', color: 'text-sky-400' },
+      { name: 'AWS Cloud', category: 'cloud', icon: 'fa-brands fa-aws', color: 'text-amber-400' },
+      { name: 'Docker', category: 'cloud', icon: 'fa-brands fa-docker', color: 'text-blue-500' },
+      { name: 'Kubernetes', category: 'cloud', icon: 'fa-solid fa-dharmachakra', color: 'text-indigo-400' },
+      { name: 'Terraform', category: 'cloud', icon: 'fa-solid fa-cubes', color: 'text-purple-500' },
+      { name: 'PostgreSQL', category: 'data', icon: 'fa-solid fa-database', color: 'text-blue-400' },
+      { name: 'Redis', category: 'data', icon: 'fa-solid fa-memory', color: 'text-red-400' },
+      { name: 'Apache Kafka', category: 'data', icon: 'fa-solid fa-stream', color: 'text-emerald-400' },
+      { name: 'gRPC / Protobuf', category: 'frameworks', icon: 'fa-solid fa-network-wired', color: 'text-cyan-400' },
+      { name: 'CI/CD Pipelines', category: 'cloud', icon: 'fa-solid fa-code-branch', color: 'text-teal-400' },
+    ];
+
+    function renderSkills(filter = 'all') {
+      const container = document.getElementById('skills-container');
+      container.innerHTML = '';
+
+      const filtered = filter === 'all' ? skills : skills.filter(s => s.category === filter);
+
+      filtered.forEach(skill => {
+        const card = document.createElement('div');
+        card.className = 'glass-panel p-4 rounded-xl border border-slate-800/80 hover:border-cyan-500/50 flex flex-col items-center justify-center gap-2 transition-all hover:-translate-y-1';
+        card.innerHTML = `
+          <i class="${skill.icon} text-2xl ${skill.color}"></i>
+          <span class="text-xs font-mono font-medium text-slate-300 text-center">${skill.name}</span>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    function filterSkills(category) {
+      document.querySelectorAll('.skill-tab-btn').forEach(btn => {
+        btn.classList.remove('border-cyan-500', 'bg-cyan-500/20', 'text-cyan-300');
+        btn.classList.add('border-slate-800', 'bg-slate-900/60', 'text-slate-400');
+      });
+      event.target.classList.add('border-cyan-500', 'bg-cyan-500/20', 'text-cyan-300');
+      event.target.classList.remove('border-slate-800', 'bg-slate-900/60', 'text-slate-400');
+      renderSkills(category);
+    }
+
+    // --- PROJECTS DATA & LOGIC ---
+    const projects = [
+      {
+        id: 1,
+        title: 'AI Code Reviewer & Assistant',
+        category: 'ai',
+        desc: 'Automated PR reviewer analyzing code complexity, security vulnerabilities, and style guidelines using LLMs.',
+        tags: ['Python', 'React', 'OpenAI API', 'FastAPI'],
+        metrics: 'Evaluated 500+ PRs with 94% accuracy',
+        details: 'An intelligent platform integrating directly into GitHub Webhooks to inspect pull requests in real time. Features automated security AST scanning and natural language summary reports.'
+      },
+      {
+        id: 2,
+        title: 'High-Throughput Distributed Cache',
+        category: 'cloud',
+        desc: 'In-memory distributed key-value store with consistent hashing, LRU eviction, and gRPC clustering.',
+        tags: ['Go', 'Redis', 'Docker', 'gRPC'],
+        metrics: 'Sub-millisecond latency under 100k QPS',
+        details: 'Built in Go to explore peer-to-peer raft consensus and dynamic partition resizing. Achieves extremely predictable low latency under heavy concurrent loads.'
+      },
+      {
+        id: 3,
+        title: 'Real-Time Cloud Dashboard',
+        category: 'web',
+        desc: 'Streaming metric visualization portal rendering live server telemetry via WebSockets and Canvas charting.',
+        tags: ['TypeScript', 'Next.js', 'WebSockets', 'Tailwind'],
+        metrics: 'Processes 50,000 data points per second',
+        details: 'Designed for DevOps teams to monitor CPU, memory, and networking spikes across AWS EC2 fleets with customizable alerting webhooks.'
+      },
+      {
+        id: 4,
+        title: 'Autonomous Drone Flight Controller',
+        category: 'systems',
+        desc: 'Low-level hardware telemetry and PID stabilization algorithm for custom quadcopter flight controllers.',
+        tags: ['C++', 'Rust', 'WebSockets'],
+        metrics: '1000Hz PID loop execution rate',
+        details: 'Embedded software written for microcontrollers with a lightweight web socket desktop interface for real-time sensor calibration.'
+      },
+      {
+        id: 5,
+        title: 'GraphQL Microservice Gateway',
+        category: 'cloud',
+        desc: 'Federated GraphQL proxy unifying backend microservices into a unified client schema with caching.',
+        tags: ['Node.js', 'GraphQL', 'Kubernetes'],
+        metrics: 'Unified 12+ legacy microservices',
+        details: 'Eliminates REST endpoint over-fetching and simplifies API consumption across web and mobile client applications.'
+      }
+    ];
+
+    function renderProjects(filter = 'all') {
+      const grid = document.getElementById('projects-grid');
+      grid.innerHTML = '';
+
+      const filtered = filter === 'all' ? projects : projects.filter(p => p.category === filter);
+
+      filtered.forEach(p => {
+        const card = document.createElement('div');
+        card.className = 'glass-panel p-6 rounded-xl border border-slate-800 glow-hover transition-all flex flex-col justify-between group';
+        card.innerHTML = `
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <div class="w-10 h-10 rounded-lg bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400">
+                <i class="fa-solid fa-code-branch"></i>
+              </div>
+              <div class="flex items-center gap-3 text-slate-400">
+                <a href="https://github.com" target="_blank" class="hover:text-cyan-400 transition-colors"><i class="fa-brands fa-github text-lg"></i></a>
+                <a href="#" onclick="openModal(${p.id}); return false;" class="hover:text-cyan-400 transition-colors"><i class="fa-solid fa-up-right-from-square text-sm"></i></a>
+              </div>
+            </div>
+
+            <h4 class="text-xl font-bold text-white group-hover:text-cyan-400 transition-colors mb-2">${p.title}</h4>
+            <p class="text-slate-400 text-sm leading-relaxed mb-4">${p.desc}</p>
+          </div>
+
+          <div>
+            <div class="text-xs font-mono text-cyan-400 mb-4 font-medium"><i class="fa-solid fa-chart-line"></i> ${p.metrics}</div>
+            <div class="flex flex-wrap gap-2">
+              ${p.tags.map(t => `<span class="px-2.5 py-1 rounded bg-slate-900 border border-slate-800 text-slate-300 font-mono text-xs">${t}</span>`).join('')}
+            </div>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+    }
+
+    function filterProjects(cat) {
+      document.querySelectorAll('.proj-filter-btn').forEach(btn => {
+        btn.classList.remove('border-cyan-500', 'bg-cyan-500/20', 'text-cyan-300');
+        btn.classList.add('border-slate-800', 'bg-slate-900/60', 'text-slate-400');
+      });
+      event.target.classList.add('border-cyan-500', 'bg-cyan-500/20', 'text-cyan-300');
+      event.target.classList.remove('border-slate-800', 'bg-slate-900/60', 'text-slate-400');
+      renderProjects(cat);
+    }
+
+    // --- MODAL FUNCTIONS ---
+    function openModal(id) {
+      const p = projects.find(item => item.id === id);
+      if (!p) return;
+
+      const modalContent = document.getElementById('modal-content');
+      modalContent.innerHTML = `
+        <div class="space-y-4">
+          <div class="inline-block px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-400 text-xs font-mono border border-cyan-500/30 uppercase">
+            ${p.category} Project
+          </div>
+          <h3 class="text-2xl font-bold text-white">${p.title}</h3>
+          <p class="text-slate-300 leading-relaxed">${p.details}</p>
+          <div class="p-4 rounded-lg bg-slate-900/80 border border-slate-800 text-cyan-400 font-mono text-sm">
+            <strong>Key Metric:</strong> ${p.metrics}
+          </div>
+          <div class="pt-2">
+            <h5 class="text-xs font-mono text-slate-400 uppercase mb-2">Technologies Used</h5>
+            <div class="flex flex-wrap gap-2">
+              ${p.tags.map(t => `<span class="px-3 py-1 rounded-md bg-slate-800 border border-slate-700 text-white font-mono text-xs">${t}</span>`).join('')}
+            </div>
+          </div>
+          <div class="flex gap-4 pt-4">
+            <a href="https://github.com" target="_blank" class="px-4 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-white font-mono text-xs flex items-center gap-2">
+              <i class="fa-brands fa-github"></i> Repository
+            </a>
+            <a href="#" onclick="showToast('Live preview environment loaded'); return false;" class="px-4 py-2 rounded-lg bg-cyan-500 text-slate-950 font-mono text-xs font-bold hover:bg-cyan-400 flex items-center gap-2">
+              <i class="fa-solid fa-arrow-up-right-from-square"></i> Demo
+            </a>
+          </div>
+        </div>
+      `;
+      document.getElementById('project-modal').classList.remove('hidden');
+    }
+
+    function closeModal() {
+      document.getElementById('project-modal').classList.add('hidden');
+    }
+
+    // --- UTILITIES & EVENT LISTENERS ---
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      document.getElementById('toast-msg').innerText = msg;
+      toast.classList.remove('hidden');
+      setTimeout(() => toast.classList.add('hidden'), 3000);
+    }
+
+    function copyToClipboard(text) {
+      const el = document.createElement('textarea');
+      el.value = text;
+      document.body.appendChild(el);
+      el.select();
+      document.execCommand('copy');
+      document.body.removeChild(el);
+      showToast('Email copied to clipboard!');
+    }
+
+    function handleFormSubmit(e) {
+      e.preventDefault();
+      showToast('Message sent! I will respond within 24 hours.');
+      document.getElementById('contact-form').reset();
+    }
+
+    // Interactive typewriter effect in Terminal
+    const typewriterLines = [
+      './deploy_production.sh --cluster=us-west',
+      'docker-compose up -d --build',
+      'git commit -m "feat: optimize database query throughput"'
+    ];
+    let lineIdx = 0;
+    let charIdx = 0;
+
+    function typeTerminal() {
+      const target = document.getElementById('terminal-typewriter');
+      if (!target) return;
+
+      const currentLine = typewriterLines[lineIdx];
+      target.innerText = currentLine.substring(0, charIdx);
+
+      if (charIdx < currentLine.length) {
+        charIdx++;
+        setTimeout(typeTerminal, 80);
+      } else {
+        setTimeout(() => {
+          charIdx = 0;
+          lineIdx = (lineIdx + 1) % typewriterLines.length;
+          typeTerminal();
+        }, 2500);
+      }
+    }
+
+    // Mobile Navigation Toggle
+    document.getElementById('mobile-menu-btn').addEventListener('click', () => {
+      document.getElementById('mobile-menu').classList.toggle('hidden');
+    });
+
+    // Initialize Page
+    window.onload = function() {
+      renderSkills();
+      renderProjects();
+      typeTerminal();
+    };
+  </script>
+</body>
+</html>
