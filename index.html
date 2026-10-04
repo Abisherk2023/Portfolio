@@ -315,7 +315,7 @@
           <div class="glass-panel p-5 sm:p-8 rounded-xl border border-slate-800 glow-hover transition-all">
             <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
               <div>
-                <h4 class="text-lg sm:text-xl font-bold text-white">Intern Software Engineer</h4>
+                <h4 class="text-lg sm:text-xl font-bold text-white">Associate Software Engineer</h4>
                 <p class="text-cyan-400 font-mono text-xs sm:text-sm">Samuel Gnanams IT Centre</p>
               </div>
               <span class="px-3 py-1 rounded-full bg-slate-800 text-slate-300 font-mono text-xs w-fit">2025</span>
@@ -324,6 +324,24 @@
               <li>Architected event-driven microservices platform processing 12M+ real-time events daily using Node.js, Kafka, and Kubernetes.</li>
               <li>Reduced AWS infrastructure costs by 32% through container optimization and dynamic auto-scaling policies.</li>
               <li>Mentored a team of 8 junior and mid-level software engineers across backend and DevOps pipelines.</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+
+       <div class="relative group">
+          <div class="absolute -left-[23px] sm:-left-[47px] top-1.5 w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-cyan-500 border-4 border-slate-950 shadow-lg shadow-cyan-500/50"></div>
+          <div class="glass-panel p-5 sm:p-8 rounded-xl border border-slate-800 glow-hover transition-all">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
+              <div>
+                <h4 class="text-lg sm:text-xl font-bold text-white">Full Stack Developer</h4>
+                <p class="text-cyan-400 font-mono text-xs sm:text-sm">Remote</p>
+              </div>
+              <span class="px-3 py-1 rounded-full bg-slate-800 text-slate-300 font-mono text-xs w-fit">2026-Present</span>
+            </div>
+            <ul class="list-disc list-inside text-slate-300 text-xs sm:text-sm space-y-2 leading-relaxed">
+              <li>Building and maintaining full-stack features, collaborating with product and design, and shipping to production. Replace with your real role and highlights.</li>
             </ul>
           </div>
         </div>
@@ -518,49 +536,40 @@
     const projects = [
       {
         id: 1,
-        title: 'AI Code Reviewer & Assistant',
+        title: 'Defect Tracker System',
         category: 'ai',
-        desc: 'Automated PR reviewer analyzing code complexity, security vulnerabilities, and style guidelines using LLMs.',
-        tags: ['Python', 'React', 'OpenAI API', 'FastAPI'],
+        desc: 'A full-stack bug tracking application designed to streamline software QA workflows. It enables development teams to log, assign, prioritize, and monitor software issues in real time to ensure timely resolution.',
+        tags: ['Java', 'React', 'Node.js', 'MySql'],
         metrics: 'Evaluated 500+ PRs with 94% accuracy',
-        details: 'An intelligent platform integrating directly into GitHub Webhooks to inspect pull requests in real time. Features automated security AST scanning and natural language summary reports.'
+        details: 'Integrated OpenAI API for automated bug classification and severity prediction, reducing manual triage time by 40%. Built with FastAPI backend and React frontend for a responsive user experience.'
       },
       {
         id: 2,
-        title: 'High-Throughput Distributed Cache',
+        title: 'Hospital Management System',
         category: 'cloud',
-        desc: 'In-memory distributed key-value store with consistent hashing, LRU eviction, and gRPC clustering.',
-        tags: ['Go', 'Redis', 'Docker', 'gRPC'],
+        desc: 'A scalable healthcare platform built to digitize patient records, streamline appointment scheduling, and improve clinical administrative workflows. Designed to ensure secure data management and high availability for hospital operations.',
+        tags: ['Next.js', 'PostgreSQL', 'AWS'],
         metrics: 'Sub-millisecond latency under 100k QPS',
-        details: 'Built in Go to explore peer-to-peer raft consensus and dynamic partition resizing. Achieves extremely predictable low latency under heavy concurrent loads.'
+        details: 'Implemented a microservices architecture with Next.js and PostgreSQL for data persistence, leveraging AWS services for cloud deployment and scalability.'
       },
       {
         id: 3,
-        title: 'Real-Time Cloud Dashboard',
+        title: 'Online Job Portal',
         category: 'web',
-        desc: 'Streaming metric visualization portal rendering live server telemetry via WebSockets and Canvas charting.',
-        tags: ['TypeScript', 'Next.js', 'WebSockets', 'Tailwind'],
+        desc: 'A  dynamic recruitment platform connecting job seekers with recruiters. Features automated resume parsing, interactive job search filters, and real-time application tracking powered by a containerized backend.',
+        tags: ['TypeScript', 'Next.js', 'Express', 'Docker'],
         metrics: 'Processes 50,000 data points per second',
-        details: 'Designed for DevOps teams to monitor CPU, memory, and networking spikes across AWS EC2 fleets with customizable alerting webhooks.'
+        details: ' Developed a responsive web application with Next.js frontend and Express backend, containerized using Docker for easy deployment. Integrated Elasticsearch for fast job search and filtering capabilities.'
       },
       {
         id: 4,
-        title: 'Autonomous Drone Flight Controller',
+        title: 'EPOS System',
         category: 'systems',
-        desc: 'Low-level hardware telemetry and PID stabilization algorithm for custom quadcopter flight controllers.',
-        tags: ['C++', 'Rust', 'WebSockets'],
+        desc: 'An Electronic Point of Sale system built for retail and hospitality environments. Handles rapid checkout operations, live inventory tracking, receipt generation, and transactional analytics through a responsive microservices architecture.',
+        tags: ['Node.js', 'MySql', 'React', 'Docker'],
         metrics: '1000Hz PID loop execution rate',
         details: 'Embedded software written for microcontrollers with a lightweight web socket desktop interface for real-time sensor calibration.'
       },
-      {
-        id: 5,
-        title: 'GraphQL Microservice Gateway',
-        category: 'cloud',
-        desc: 'Federated GraphQL proxy unifying backend microservices into a unified client schema with caching.',
-        tags: ['Node.js', 'GraphQL', 'Kubernetes'],
-        metrics: 'Unified 12+ legacy microservices',
-        details: 'Eliminates REST endpoint over-fetching and simplifies API consumption across web and mobile client applications.'
-      }
     ];
 
     function renderProjects(filter = 'all') {
